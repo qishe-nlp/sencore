@@ -1,7 +1,3 @@
----
-title: sencore
----
-
 Install from pip3
 =================
 
