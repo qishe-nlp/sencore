@@ -1,16 +1,17 @@
-sencore
-=======
+---
+title: sencore
+---
 
 Install from pip3
------------------
+=================
 
-``` {.python}
-pip3 install --index-url http://172.104.64.127:8080/ --trusted-host 172.104.64.127 --verbose sencore
+```shell 
+pip3 install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple --verbose sencore
 ```
 
 Parse sentence into vocabs
---------------------------
+==========================
 
-``` {.shell}
-parse_vocab [lang] [sentence]
+```shell
+parse_vocab --lang en --sentence "It is a great day"
 ```

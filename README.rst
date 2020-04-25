@@ -3,14 +3,13 @@ sencore
 
 Install from pip3
 -----------------
-.. code:: python
-   
-   pip3 install --index-url http://172.104.64.127:8080/ --trusted-host 172.104.64.127 --verbose sencore
+.. code:: shell 
+   pip3 install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple --verbose sencore 
+
 
 
 Parse sentence into vocabs
 --------------------------
 .. code:: shell
-
-   parse_vocab [lang] [sentence]
+   parse_vocab --lang en --sentence "It is a great day"
 
