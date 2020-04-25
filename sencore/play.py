@@ -1,7 +1,11 @@
-from sencore.pipe.vocab_pipe import VocabPipe 
+from sencore import VocabParser 
 import sys
+import click
 
-def play(lang="en", sentence=None):
+@click.command()
+@click.option("--lang", help="Specify the language", default="en", prompt="Language")
+@click.option("--sentence", help="Specify the sentence", prompt="Sentence")
+def vocab(lang, sentence):
     sentences = {
         "en": "Apple is looking at buying U.K. startup for $1 billion.",
         "es": "En 1941, fue llamado a filas para incorporarse a la Armada.",
@@ -11,11 +15,7 @@ def play(lang="en", sentence=None):
 
     sen = sentence or sentences[lang]
     print(sen)
-    vp = VocabPipe(lang)
-    vm = vp.digest(sen)
-    print(vm.simple_exp())
+    vp = VocabParser(lang)
+    vocabs = vp.digest(sen)
+    print(vocabs)
 
-def run():
-    lang = sys.argv[1] if len(sys.argv) >= 2 else "en" 
-    sentence = sys.argv[2] if len(sys.argv) >= 3 else None
-    play(lang, sentence)
