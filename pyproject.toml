@@ -7,7 +7,6 @@ authors = ["Phoenix Grey <phoenix.grey0108@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 spacy = "^2.2.3"
-googletrans = "^2.4.0"
 click = "^7.1.1"
 
 [tool.poetry.dev-dependencies]

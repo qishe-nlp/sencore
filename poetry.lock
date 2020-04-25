@@ -88,20 +88,6 @@ version = "2.0.3"
 
 [[package]]
 category = "main"
-description = "Free Google Translate API for Python. Translates totally free of charge."
-name = "googletrans"
-optional = false
-python-versions = "*"
-version = "2.4.0"
-
-[package.dependencies]
-requests = "*"
-
-[package.extras]
-h2 = ["hyper"]
-
-[[package]]
-category = "main"
 description = "Internationalized Domain Names in Applications (IDNA)"
 name = "idna"
 optional = false
@@ -390,7 +376,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "983025bdddaba839037c9b85e5eb3e5e058188fde1ee6156df9489d0db2eb5c3"
+content-hash = "225d55309ead419a71ef1c457147b2747454a2fbd26e744e15a4fc2166fa97d9"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -453,9 +439,6 @@ cymem = [
     {file = "cymem-2.0.3-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:85b9364e099426bd7f445a7705aad87bf6dbb71d79e3802dd8ca14e181d38a33"},
     {file = "cymem-2.0.3-cp38-cp38-win_amd64.whl", hash = "sha256:dd24848fbd75b17bab06408da6c029ba7cc615bd9e4a1f755fb3a090025fb922"},
     {file = "cymem-2.0.3.tar.gz", hash = "sha256:5083b2ab5fe13ced094a82e0df465e2dbbd9b1c013288888035e24fd6eb4ed01"},
-]
-googletrans = [
-    {file = "googletrans-2.4.0.tar.gz", hash = "sha256:bb4e2a6ee72a24870e696a14238b7305f855a05206ecae10bd50052651984cc5"},
 ]
 idna = [
     {file = "idna-2.9-py2.py3-none-any.whl", hash = "sha256:a068a21ceac8a4d63dbfd964670474107f541babbd2250d61922f029858365fa"},
