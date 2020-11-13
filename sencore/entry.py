@@ -1,5 +1,4 @@
 from sencore import VocabParser 
-import sys
 import click
 
 @click.command()
