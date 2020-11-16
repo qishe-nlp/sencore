@@ -57,7 +57,7 @@ poetry run parse_to_vocab --help
 ```
 
 ### Build
-* Change `version` in `pyproject.toml` and `x2cdict/__init__.py`
+* Change `version` in `pyproject.toml` and `sencore/__init__.py`
 * Build python package by `poetry build`
 
 ### Publish
