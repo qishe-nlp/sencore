@@ -13,6 +13,8 @@ python -m spacy download es_dep_news_trf
 
 # Usage
 
+Please refer to [api docs](https://qishe-nlp.github.io/sencore/).
+
 ### Executable usage
 * Parse sentence into vocabs
 
@@ -99,16 +101,22 @@ poetry run parse_to_vocab --help
 ### Create sphinx docs
 ```
 poetry shell
-cd docs
+cd apidocs
 sphinx-apidoc -f -o source ../subtitlecore
 make html
 python -m http.server -d build/html
 ```
 
+### Hose docs on github pages
+```
+cp -rf apidocs/build/html/* docs/
+```
 
 ### Build
 * Change `version` in `pyproject.toml` and `sencore/__init__.py`
 * Build python package by `poetry build`
+
+### Git commit and push
 
 ### Publish
 * Set pypi test environment variables in poetry, refer to [poetry doc](https://python-poetry.org/docs/repositories/)
