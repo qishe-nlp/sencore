@@ -7,7 +7,8 @@ pip3 install --index-url https://test.pypi.org/simple/ --extra-index-url https:/
 
 ### Install spacy lib
 ```
-python -m spacy download en_core_web_sm
+python -m spacy download en_core_web_trf
+python -m spacy download es_dep_news_trf
 ```
 
 # Usage
@@ -79,7 +80,8 @@ git clone https://github.com/qishe-nlp/sencore.git
 ### Install dependencies
 ```
 poetry update
-poetry run python -m spacy download en_core_web_md
+python -m spacy download en_core_web_trf
+python -m spacy download es_dep_news_trf
 ```
 
 ### Test
