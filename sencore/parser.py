@@ -1,18 +1,17 @@
 class Parser:
-  """
-  Abstract class for VocabParser, PhraseParser, SentencePatternParser
+  """Abstract class for VocabParser, PhraseParser
+
+  Attributes:
+    lang (str): language abbreviation, e.g. ``en``, ``es``
   """
 
   def __init__(self, lang="en"):
-    """
-    Initialize the language
+    """Initialize the language
     """
     self.lang = lang
 
   def digest(self, sentence):
-    """
-    Process sentence into vocabs, phrases and sentence patterns 
-    The children class should handle details
+    """The child classes should handle details. Throw ``Exception`` if calling directly.
     """
     raise Exception("You have to implement method {}!!!".format("digest"))
       

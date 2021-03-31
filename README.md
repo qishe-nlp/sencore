@@ -1,4 +1,4 @@
-# Usage
+# Installation 
 
 ### Install from pip3
 ``` 
@@ -10,31 +10,62 @@ pip3 install --index-url https://test.pypi.org/simple/ --extra-index-url https:/
 python -m spacy download en_core_web_sm
 ```
 
+# Usage
+
 ### Executable usage
-Parse sentence into vocabs
-```
-parse_to_vocab --lang en --sentence "It is a great day"
-```
+* Parse sentence into vocabs
+
+  ```
+  parse2vocab --lang en --sentence "It is a great day."
+  ```
+
+* Parse sentence into phrases
+
+  ```
+  parse2phrase --lang en --sentence "It is a great day."
+  ```
 
 ### Package usage
-```
-from sencore import VocabParser 
+* Parse sentence into vocabs
 
-def vocab(lang, sentence):
-  sentences = {
-      "en": "Apple is looking at buying U.K. startup for $1 billion.",
-      "es": "En 1941, fue llamado a filas para incorporarse a la Armada.",
-      "de": "Für Joachim Löw ist ein Nationalmannschafts-Comeback von Thomas Müller und Mats Hummels nicht mehr kategorisch ausgeschlossen.",
-      "fr": "Nos jolis canards vont-ils détrôner les poules, coqueluches des jardiniers ?",
-  }
+  ```
+  from sencore import VocabParser 
 
-  sen = sentence or sentences[lang]
-  print(sen)
-  vp = VocabParser(lang)
-  vocabs = vp.digest(sen)
-  print(vocabs)
+  def vocab(lang, sentence):
+    sentences = {
+        "en": "Apple is looking at buying U.K. startup for $1 billion.",
+        "es": "En 1941, fue llamado a filas para incorporarse a la Armada.",
+        "de": "Für Joachim Löw ist ein Nationalmannschafts-Comeback von Thomas Müller und Mats Hummels nicht mehr kategorisch ausgeschlossen.",
+        "fr": "Nos jolis canards vont-ils détrôner les poules, coqueluches des jardiniers ?",
+    }
 
-```
+    sen = sentence or sentences[lang]
+    print(sen)
+    vp = VocabParser(lang)
+    vocabs = vp.digest(sen)
+    print(vocabs)
+
+  ```
+
+* Parse sentence into phrases
+
+  ```
+  from sencore import PhraseParser
+
+  def phrase(lang, sentence):
+    sentences = {
+        "en": "Apple is looking at buying U.K. startup for $1 billion.",
+        "es": "En 1941, fue llamado a filas para incorporarse a la Armada.",
+        "de": "Für Joachim Löw ist ein Nationalmannschafts-Comeback von Thomas Müller und Mats Hummels nicht mehr kategorisch ausgeschlossen.",
+        "fr": "Nos jolis canards vont-ils détrôner les poules, coqueluches des jardiniers ?",
+    }
+
+    sen = sentence or sentences[lang]
+    print(sen)
+    pp = PhraseParser(lang)
+    phrases = pp.digest(sen)
+    print(phrases)
+  ```
 
 # Development
 
@@ -51,10 +82,27 @@ poetry update
 poetry run python -m spacy download en_core_web_md
 ```
 
+### Test
+```
+poetry run pytest -rP
+```
+which run tests under `tests/*`
+
+
 ### Execute
 ```
 poetry run parse_to_vocab --help
 ```
+
+### Create sphinx docs
+```
+poetry shell
+cd docs
+sphinx-apidoc -f -o source ../subtitlecore
+make html
+python -m http.server -d build/html
+```
+
 
 ### Build
 * Change `version` in `pyproject.toml` and `sencore/__init__.py`
@@ -66,9 +114,6 @@ poetry run parse_to_vocab --help
 
 
 # TODO
-
-### Test and Issue
-* `tests/*`
 
 ### Github action to publish package
 * pypi test repo

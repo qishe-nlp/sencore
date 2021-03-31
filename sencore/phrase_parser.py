@@ -1,57 +1,55 @@
-from sencore.parser import Parser
 import spacy
-#from spacy import displacy
-from phrase_recognizer import NounPhraseRecognizer, PrepPhraseRecognizer, VerbKnowledgeRecognizer
+from sencore.parser import Parser
+from spacy import Language
+from phrase_recognizer import NounPhraseRecognizer, PrepPhraseRecognizer, VerbKnowledgeRecognizer, PKG_INDICES
+#from sencore.lib import extend_ranges
 
-def merge_ranges(ranges):
-  ordered = sorted(ranges, key=lambda x: x[0])
-  purified = []
-  index = 0
-  while index < len(ordered)-1:
-    first, second = ordered[index], ordered[index+1]
-    if first[1] > second[0]:
-      purified.append((first[0], max(first[1], second[1]), first[2]))
-      index = index + 2
-    else:
-      purified.append(first)
-      index = index + 1
-  if index == len(ordered)-1:
-    purified.append(ordered[index])
-  return purified
+@Language.factory("nprecog")
+def create_np_parser(nlp: Language, name: str):
+  """Register ``NounPhraseRecognizer`` into pipeline with component name ``nprecog``
+  """
+  return NounPhraseRecognizer(nlp) 
 
-def extend_ranges(ranges, maxlen):
-  ordered = merge_ranges(ranges)
-  start = 0
-  result = []
-  for e in ordered:
-    if start < e[0]:
-      result.append((start, e[0], "plain"))
-    result.append(e)
-    start = e[1]
-  if start < maxlen:
-    result.append((start, maxlen, "plain"))
-  return result
+@Language.factory("pprecog")
+def create_pp_parser(nlp: Language, name: str):
+  """Register ``PrepPhraseRecognizer`` into pipeline with component name ``pprecog``
+  """
+  return PrepPhraseRecognizer(nlp) 
+
+@Language.factory("vkbrecog")
+def create_vkb_parser(nlp: Language, name: str):
+  """Register ``VerbKnowledgeRecognizer`` into pipeline with component name ``vkbrecog``
+  """
+  return VerbKnowledgeRecognizer(nlp) 
 
 class PhraseParser(Parser):
-
-  pkgindices = {
-    "en": "en_core_web_md",
-    "es": "es_core_news_md",
-    "de": "de_core_news_md",
-    "fr": "fr_core_news_md",
-  }
+  """``PhraseParser`` is to detect phrases from sentence. Inherit ``Parser``, implements ``digest``.
+  """
 
   def __init__(self, lang):
+    """Initialize nlp processor according to language
+
+    Args:
+      lang (str): language abbreviation
+    """
+
     super().__init__(lang) 
-    self._nlp = spacy.load(self.__class__.pkgindices[lang])
-    np_recognizer = NounPhraseRecognizer(self._nlp)
-    self._nlp.add_pipe(np_recognizer)
-    pp_recognizer = PrepPhraseRecognizer(self._nlp)
-    self._nlp.add_pipe(pp_recognizer)
-    vk_recognizer = VerbKnowledgeRecognizer(self._nlp)
-    self._nlp.add_pipe(vk_recognizer)
+    self._nlp = spacy.load(PKG_INDICES[lang])
+    self._nlp.add_pipe("nprecog")
+    self._nlp.add_pipe("pprecog")
+    self._nlp.add_pipe("vkbrecog")
 
   def digest(self, sentence):
+    """Parse sentence into phrases with linguistic meta info
+
+    Args:
+      sentence (str): sentence to be parsed
+
+    Returns:
+      dict: Keys are ``noun_phrase``, ``prep_phrases``, ``verbs``, ``passive_phrases``, ``verb_phrases``
+    """
+
+
     doc = self._nlp(sentence)
     
     noun_phrases = [np.text for np in doc._.noun_phrases]
@@ -60,12 +58,12 @@ class PhraseParser(Parser):
     passive_phrases = [pp.text for pp in doc._.passive_phrases]
     verb_phrases = doc._.verb_phrases
 
-    noun_phrases_ranges = [(np.start, np.end, "noun_phrases") for np in doc._.noun_phrases]
-    prep_phrases_ranges = [(pp.start, pp.end, "prep_phrases") for pp in doc._.prep_phrases]
-    verbs_ranges = [(v.i, v.i+1, "verbs") for v in doc._.verbs]
+    #noun_phrases_ranges = [(np.start, np.end, "noun_phrases") for np in doc._.noun_phrases]
+    #prep_phrases_ranges = [(pp.start, pp.end, "prep_phrases") for pp in doc._.prep_phrases]
+    #verbs_ranges = [(v.i, v.i+1, "verbs") for v in doc._.verbs]
 
-    doc_mark = extend_ranges(noun_phrases_ranges+prep_phrases_ranges+verbs_ranges, len(doc))
-    markers = [(doc[d[0]: d[1]].text, d[2]) for d in doc_mark]
+    #doc_mark = extend_ranges(noun_phrases_ranges+prep_phrases_ranges+verbs_ranges, len(doc))
+    #markers = [(doc[d[0]: d[1]].text, d[2]) for d in doc_mark]
 
     return {
       "noun_phrases": noun_phrases,
@@ -73,6 +71,6 @@ class PhraseParser(Parser):
       "verbs": verbs,
       "passive_phrases": passive_phrases,
       "verb_phrases": verb_phrases,
-      "markers": markers
+      #"markers": markers
     }
 

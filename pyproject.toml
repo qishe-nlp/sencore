@@ -1,22 +1,25 @@
 [tool.poetry]
 name = "sencore"
-version = "0.1.5"
+version = "0.1.6"
 description = "sentence nlp parser for multilingua"
 authors = ["Phoenix Grey <phoenix.grey0108@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-spacy = "^2.2.3"
 click = "^7.1.1"
-phrase-recognizer = "^0.1.4"
+spacy = "^3.0.5"
+phrase-recognizer = "^0.1.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+Sphinx = "^3.5.3"
+sphinx-rtd-theme = "^0.5.1"
 
 [tool.poetry.scripts]
-parse_to_vocab = "sencore.entry:vocab" 
-parse_to_phrase = "sencore.entry:phrase"
+parse2vocab = "sencore.entry:vocab" 
+parse2phrase = "sencore.entry:phrase"
 
+review_phrase = "sencore.train:generate_review_phrases"
 
 [build-system]
 requires = ["poetry>=0.12"]
