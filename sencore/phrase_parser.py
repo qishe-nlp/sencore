@@ -1,7 +1,7 @@
 import spacy
 from sencore.parser import Parser
 from spacy import Language
-from phrase_recognizer import NounPhraseRecognizer, PrepPhraseRecognizer, VerbKnowledgeRecognizer, PKG_INDICES
+from phrase_detective import NounPhraseRecognizer, PrepPhraseRecognizer, VerbKnowledgeRecognizer, PKG_INDICES
 #from sencore.lib import extend_ranges
 
 @Language.factory("nprecog")

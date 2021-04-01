@@ -2,7 +2,7 @@
 
 ### Install from pip3
 ``` 
-pip3 install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple --verbose sencore
+pip3 install --verbose sencore
 ```
 
 ### Install spacy lib
@@ -118,13 +118,18 @@ cp -rf apidocs/build/html/* docs/
 
 ### Git commit and push
 
-### Publish
+### Publish from local dev env
 * Set pypi test environment variables in poetry, refer to [poetry doc](https://python-poetry.org/docs/repositories/)
 * Publish to pypi test by `poetry publish -r test`
 
+### Publish through CI 
 
-# TODO
+* Github action build and publish package to [test pypi repo](https://test.pypi.org/)
 
-### Github action to publish package
-* pypi test repo
-* pypi repo
+```
+git tag [x.x.x]
+git push origin master
+```
+
+* Manually publish to [pypi repo](https://pypi.org/) through [github action](https://github.com/qishe-nlp/sencore/actions/workflows/pypi.yml)
+
