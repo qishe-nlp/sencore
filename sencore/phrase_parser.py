@@ -2,7 +2,7 @@ import spacy
 from sencore.parser import Parser
 from spacy import Language
 from phrase_detective import NounPhraseRecognizer, PrepPhraseRecognizer, VerbKnowledgeRecognizer, PKG_INDICES
-#from sencore.lib import extend_ranges
+from sencore.lib import extend_ranges
 
 @Language.factory("nprecog")
 def create_np_parser(nlp: Language, name: str):
@@ -58,12 +58,13 @@ class PhraseParser(Parser):
     passive_phrases = [pp.text for pp in doc._.passive_phrases]
     verb_phrases = doc._.verb_phrases
 
-    #noun_phrases_ranges = [(np.start, np.end, "noun_phrases") for np in doc._.noun_phrases]
-    #prep_phrases_ranges = [(pp.start, pp.end, "prep_phrases") for pp in doc._.prep_phrases]
-    #verbs_ranges = [(v.i, v.i+1, "verbs") for v in doc._.verbs]
+    # In order to mark the span as noun_phrases, verb_phrases, verbs or plain for subtitle usage
+    noun_phrases_ranges = [(np.start, np.end, "noun_phrases") for np in doc._.noun_phrases]
+    prep_phrases_ranges = [(pp.start, pp.end, "prep_phrases") for pp in doc._.prep_phrases]
+    verbs_ranges = [(v.i, v.i+1, "verbs") for v in doc._.verbs]
 
-    #doc_mark = extend_ranges(noun_phrases_ranges+prep_phrases_ranges+verbs_ranges, len(doc))
-    #markers = [(doc[d[0]: d[1]].text, d[2]) for d in doc_mark]
+    doc_mark = extend_ranges(noun_phrases_ranges+prep_phrases_ranges+verbs_ranges, len(doc))
+    markers = [(doc[d[0]: d[1]].text, d[2]) for d in doc_mark]
 
     return {
       "noun_phrases": noun_phrases,
@@ -71,6 +72,6 @@ class PhraseParser(Parser):
       "verbs": verbs,
       "passive_phrases": passive_phrases,
       "verb_phrases": verb_phrases,
-      #"markers": markers
+      "markers": markers
     }
 
