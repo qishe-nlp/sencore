@@ -46,7 +46,7 @@ class PhraseParser(Parser):
       sentence (str): sentence to be parsed
 
     Returns:
-      dict: Keys are ``noun_phrase``, ``prep_phrases``, ``verbs``, ``passive_phrases``, ``verb_phrases``
+      dict: Keys are ``noun_phrases``, ``prep_phrases``, ``verbs``, ``passive_phrases``, ``verb_phrases``
     """
 
 
@@ -75,7 +75,7 @@ class PhraseParser(Parser):
       "markers": markers
     }
 
-  def __del_(self):
+  def __del__(self):
     self._nlp.remove_pipe("nprecog")
     self._nlp.remove_pipe("pprecog")
     self._npl.remove_pipe("vkbrecog")
