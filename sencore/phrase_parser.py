@@ -75,3 +75,7 @@ class PhraseParser(Parser):
       "markers": markers
     }
 
+  def __del_(self):
+    self._nlp.remove_pipe("nprecog")
+    self._nlp.remove_pipe("pprecog")
+    self._npl.remove_pipe("vkbrecog")
