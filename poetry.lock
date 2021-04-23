@@ -198,7 +198,7 @@ test = ["pytest", "pytest-coverage", "mock", "typer-cli"]
 
 [[package]]
 name = "phrase-detective"
-version = "0.1.10"
+version = "0.1.11"
 description = "Phrase recognizer component for spacy pipeline"
 category = "main"
 optional = false
@@ -817,8 +817,8 @@ pathy = [
     {file = "pathy-0.5.0.tar.gz", hash = "sha256:095df57825dac0ae823de35b6d4b831ad100a38540f456fb691fd0db67a6cf91"},
 ]
 phrase-detective = [
-    {file = "phrase-detective-0.1.10.tar.gz", hash = "sha256:dde12b4f0eb27a3bc7a2d8ecd5629bee2daccc69b322bcd3e82414c32c695fc0"},
-    {file = "phrase_detective-0.1.10-py3-none-any.whl", hash = "sha256:a71a10b7325b9fe05f4a55fef9dcd23dea96c05f78c6bf86a2440c1e6a20f095"},
+    {file = "phrase-detective-0.1.11.tar.gz", hash = "sha256:5f1f069bb6dead5c37ae8cb6a81639488ef9bc00c5ec51461121b03e26d4ce2a"},
+    {file = "phrase_detective-0.1.11-py3-none-any.whl", hash = "sha256:321086a9c8e5dbd83ba4ef2dc42bcaaaaf0df2324d4d241183b86e8c590b0179"},
 ]
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
