@@ -78,4 +78,4 @@ class PhraseParser(Parser):
   def __del__(self):
     self._nlp.remove_pipe("nprecog")
     self._nlp.remove_pipe("pprecog")
-    self._npl.remove_pipe("vkbrecog")
+    self._nlp.remove_pipe("vkbrecog")
