@@ -14,7 +14,7 @@ def _write_to_csv(fields, content, csvfile="review.csv"):
 @click.command()
 @click.option("--lang", help="Specify the language", default="en", prompt="Language")
 @click.option("--senfile", help="Specify the sentence file in json", prompt="Sentence file")
-@click.option("--dstname", help="Specify the noun phrase review file", prompt="Review file")
+@click.option("--dstname", help="Specify the phrase review file", prompt="Review file")
 def generate_review_phrases(lang, senfile, dstname):
   pp = PhraseParser(lang)
 
@@ -28,13 +28,13 @@ def generate_review_phrases(lang, senfile, dstname):
   for sen in TEXTS:
     phrases = pp.digest(sen)
 
-    np_content.append({"sentence": sen, "nps": phrases["noun_phrases"]})
-    pp_content.append({"sentence": sen, "pps": phrases["prep_phrases"]})
-    v_content.append({"sentence": sen, "vs": phrases["verbs"], "pps": phrases["passive_phrases"], "vps": phrases["verb_phrases"]})
+    np_content.append({"sentence": sen, "phrases": json.dumps(phrases["noun_phrases"])})
+    pp_content.append({"sentence": sen, "phrases": json.dumps(phrases["prep_phrases"])})
+    v_content.append({"sentence": sen, "vs": json.dumps(phrases["verbs"]), "pps": json.dumps(phrases["passive_phrases"]), "phrases": json.dumps(phrases["verb_phrases"])})
 
-  _write_to_csv(["sentence", "nps"], np_content, csvfile=dstname+"_np.csv")
-  _write_to_csv(["sentence", "pps"], pp_content, csvfile=dstname+"_pp.csv")
-  _write_to_csv(["sentence", "vs", "pps", "vps"], v_content, csvfile=dstname+"_v.csv")
+  _write_to_csv(["sentence", "phrases"], np_content, csvfile=dstname+".noun_phrase.csv")
+  _write_to_csv(["sentence", "phrases"], pp_content, csvfile=dstname+".prep_phrase.csv")
+  _write_to_csv(["sentence", "vs", "pps", "phrases"], v_content, csvfile=dstname+".verb_phrase.csv")
 
 
 
