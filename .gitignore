@@ -4,3 +4,4 @@ dist
 *.csv
 apidocs/build
 *.zip
+*.json
