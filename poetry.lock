@@ -199,7 +199,7 @@ test = ["pytest", "pytest-coverage", "mock", "typer-cli"]
 
 [[package]]
 name = "phrase-detective"
-version = "0.1.22"
+version = "0.1.23"
 description = "Phrase recognizer component for spacy pipeline"
 category = "main"
 optional = false
@@ -621,7 +621,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "cc4f87ee36c1ea072a0d562d4d82661f261275ec81839095872430f66b647340"
+content-hash = "b4ddd7f4a0b9a3ba0da5f593d4e0520396d3d022b7a4b828b1815b9cedf3900b"
 
 [metadata.files]
 alabaster = [
@@ -800,8 +800,8 @@ pathy = [
     {file = "pathy-0.5.2.tar.gz", hash = "sha256:9dbf26cbfe6b91ceed86e1e75d91ded4783c8feb0b06563225c2c75abaca6793"},
 ]
 phrase-detective = [
-    {file = "phrase-detective-0.1.22.tar.gz", hash = "sha256:797718c9fac9a858f7ff1093c4352891a02b262982f84fb2c88a45e0c89a1750"},
-    {file = "phrase_detective-0.1.22-py3-none-any.whl", hash = "sha256:786129f9e14e94460b6d97746bdb3fe50bdf9fc8facaeedf1a802292c3e7c480"},
+    {file = "phrase-detective-0.1.23.tar.gz", hash = "sha256:079747e8a829de08b18f7d9fb8fd872d96d22d3c2b277308c5194dc12e8f8d81"},
+    {file = "phrase_detective-0.1.23-py3-none-any.whl", hash = "sha256:650afa161f0b4a038ecbf548e5b9ea9f8ffc2d1c1c988af350e9ad8320bb2a88"},
 ]
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
