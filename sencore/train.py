@@ -22,18 +22,15 @@ def generate_review_phrases(lang, senfile, dstname):
     TEXTS = json.loads(f.read())
 
   np_content = []
-  pp_content = []
   v_content = []
 
   for sen in TEXTS:
     phrases = pp.digest(sen)
 
     np_content.append({"sentence": sen, "phrases": json.dumps(phrases["noun_phrases"])})
-    pp_content.append({"sentence": sen, "phrases": json.dumps(phrases["prep_phrases"])})
     v_content.append({"sentence": sen, "vs": json.dumps(phrases["verbs"]), "pps": json.dumps(phrases["passive_phrases"]), "phrases": json.dumps(phrases["verb_phrases"])})
 
   _write_to_csv(["sentence", "phrases"], np_content, csvfile=dstname+".noun_phrase.csv")
-  _write_to_csv(["sentence", "phrases"], pp_content, csvfile=dstname+".prep_phrase.csv")
   _write_to_csv(["sentence", "vs", "pps", "phrases"], v_content, csvfile=dstname+".verb_phrase.csv")
 
 
