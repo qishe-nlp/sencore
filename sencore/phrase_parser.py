@@ -39,7 +39,7 @@ class PhraseParser(Parser):
       sentence (str): sentence to be parsed
 
     Returns:
-      dict: Keys are ``noun_phrases``, ``verbs``, ``passive_phrases``, ``verb_phrases``
+      dict: Keys are ``noun_phrases``, ``verbs``, `markers``
     """
 
 
@@ -47,10 +47,8 @@ class PhraseParser(Parser):
     
     noun_phrases = [np.text for np in doc._.noun_phrases]
     verbs = [{"text": v.text, "tag": v.tag_, "form": spacy.explain(v.tag_), "lemma": v.lemma_} for v in doc._.verbs]
-    passive_phrases = [pp.text for pp in doc._.passive_phrases]
-    verb_phrases = doc._.verb_phrases
 
-    # In order to mark the span as noun_phrases, verb_phrases, verbs or plain for subtitle usage
+    # In order to mark the span as noun_phrases, verbs or plain for subtitle usage
     noun_phrases_ranges = [(np.start, np.end, "noun_phrases") for np in doc._.noun_phrases]
     verbs_ranges = [(v.i, v.i+1, "verbs") for v in doc._.verbs]
 
@@ -60,8 +58,6 @@ class PhraseParser(Parser):
     return {
       "noun_phrases": noun_phrases,
       "verbs": verbs,
-      "passive_phrases": passive_phrases,
-      "verb_phrases": verb_phrases,
       "markers": markers
     }
 

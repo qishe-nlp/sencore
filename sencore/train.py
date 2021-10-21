@@ -28,10 +28,10 @@ def generate_review_phrases(lang, senfile, dstname):
     phrases = pp.digest(sen)
 
     np_content.append({"sentence": sen, "phrases": json.dumps(phrases["noun_phrases"])})
-    v_content.append({"sentence": sen, "vs": json.dumps(phrases["verbs"]), "pps": json.dumps(phrases["passive_phrases"]), "phrases": json.dumps(phrases["verb_phrases"])})
+    v_content.append({"sentence": sen, "verbs": json.dumps(phrases["verbs"])})
 
   _write_to_csv(["sentence", "phrases"], np_content, csvfile=dstname+".noun_phrase.csv")
-  _write_to_csv(["sentence", "vs", "pps", "phrases"], v_content, csvfile=dstname+".verb_phrase.csv")
+  _write_to_csv(["sentence", "verbs"], v_content, csvfile=dstname+".verb.csv")
 
 
 
