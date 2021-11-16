@@ -27,4 +27,8 @@ def extend_ranges(ranges, maxlen):
     result.append((start, maxlen, "plain"))
   return result
 
-
+def explain(kg, translator):
+  d = {}
+  for k, v in kg.items():
+    d[translator[k]] = v
+  return d

@@ -1,4 +1,5 @@
 from sencore import VocabParser, PhraseParser, StructureParser, KGParser
+from sencore.lib import explain
 import click
 
 @click.command()
@@ -68,6 +69,8 @@ def kg(lang, sentence):
   sen = sentence or sentences[lang]
   print(sen)
   kgp = KGParser(lang, labels=["VERB"])
+  translator = kgp.get_translator("cn")
   kgs = kgp.digest(sen)
-  print(kgs)
+  result = explain(kgs, translator)
+  print(result)
 
