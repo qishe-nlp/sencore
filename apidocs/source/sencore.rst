@@ -12,6 +12,14 @@ sencore.entry module
    :undoc-members:
    :show-inheritance:
 
+sencore.kg\_parser module
+-------------------------
+
+.. automodule:: sencore.kg_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 sencore.lib module
 ------------------
 
@@ -32,6 +40,14 @@ sencore.phrase\_parser module
 -----------------------------
 
 .. automodule:: sencore.phrase_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+sencore.structure\_parser module
+--------------------------------
+
+.. automodule:: sencore.structure_parser
    :members:
    :undoc-members:
    :show-inheritance:
