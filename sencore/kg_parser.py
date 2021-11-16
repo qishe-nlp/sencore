@@ -14,7 +14,7 @@ class KGParser(Parser):
   """``KGParser`` is to detect knowledge graph from sentence. Inherit ``Parser``, implements ``digest``.
   """
 
-  def __init__(self, lang):
+  def __init__(self, lang: str, labels: list=[], rules: list=[]):
     """Initialize nlp processor according to language
 
     Args:
@@ -23,7 +23,7 @@ class KGParser(Parser):
 
     super().__init__(lang) 
     self._nlp = spacy.load(PKG_INDICES[lang])
-    self._nlp.add_pipe("kg")
+    self._nlp.add_pipe("kg", config={"labels": labels, "rules": rules})
 
   def digest(self, sentence):
     """Parse sentence into kg with linguistic meta info

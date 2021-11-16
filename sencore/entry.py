@@ -67,7 +67,7 @@ def kg(lang, sentence):
 
   sen = sentence or sentences[lang]
   print(sen)
-  kgp = KGParser(lang)
+  kgp = KGParser(lang, labels=["VERB"])
   kgs = kgp.digest(sen)
   print(kgs)
 
