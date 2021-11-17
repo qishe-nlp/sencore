@@ -30,5 +30,8 @@ def extend_ranges(ranges, maxlen):
 def explain(kg, translator):
   d = {}
   for k, v in kg.items():
-    d[translator[k]] = v
+    if k in translator.keys():
+      d[translator[k]] = v
+    else:
+      d[k] = v
   return d
