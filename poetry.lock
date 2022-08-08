@@ -574,8 +574,8 @@ catalogue = ">=2.0.3,<2.1.0"
 
 [[package]]
 name = "structure-detective"
-version = "0.1.1"
-description = ""
+version = "0.1.2"
+description = "Parse sentence"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
@@ -694,7 +694,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "a282b7e0c2a9f3e43f0fbcc386f81f9659d660a63751bf8610f1f72351218d48"
+content-hash = "7a54edd05b0c9788fbe95fe69f3911e43818b01812bd82fa126ccdf0fd62ea3e"
 
 [metadata.files]
 alabaster = [
@@ -1037,10 +1037,7 @@ srsly = [
     {file = "srsly-2.4.2-cp39-cp39-win_amd64.whl", hash = "sha256:090072830cf2d5bd6765705a02463f586db8a586805d1c31a72080f971d311b5"},
     {file = "srsly-2.4.2.tar.gz", hash = "sha256:2aba252292767875086adf4e4380e27b024d73655456f796f8e07eb3a4dfacc0"},
 ]
-structure-detective = [
-    {file = "structure-detective-0.1.1.tar.gz", hash = "sha256:446a9f136f4d97cd3c03aa4de751ac17999c89aebad871f8f0ebbdb3d10774b5"},
-    {file = "structure_detective-0.1.1-py3-none-any.whl", hash = "sha256:c59efff4708dc0c64e5792060285c76f69e4879a4c06d07002945c3958cc16bc"},
-]
+structure-detective = []
 thinc = [
     {file = "thinc-8.0.13-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:f818b9f012169a11beb3561c43dc52080588e50cf495733e492efab8b9b4135e"},
     {file = "thinc-8.0.13-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f520daf45b7f42a04363852df43be1b423ae42d9327709d74f6c3279b3f73778"},
