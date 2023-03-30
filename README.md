@@ -107,7 +107,7 @@ make html
 python -m http.server -d build/html
 ```
 
-### Hose docs on github pages
+### Host docs on github pages
 ```
 cp -rf apidocs/build/html/* docs/
 ```
