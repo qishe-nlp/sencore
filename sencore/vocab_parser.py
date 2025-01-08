@@ -12,7 +12,7 @@ class VocabParser(Parser):
     "fr": "fr_dep_news_trf",
   }
 
-  def __init__(self, lang):
+  def __init__(self, lang: str, poses: list=[]):
     """Initialize nlp processor according to language
 
     Args:
@@ -21,6 +21,7 @@ class VocabParser(Parser):
 
     super().__init__(lang) 
     self._nlp = spacy.load(self.__class__._pkgindices[lang])
+    self._poses = poses
 
   def digest(self, sentence):
     """Parse sentence into vocabularies with linguistic meta info
@@ -29,9 +30,14 @@ class VocabParser(Parser):
       sentence (str): sentence to be parsed
 
     Returns:
-      list: element is a dict, with keys ``word`` and ``pos``
+      list[dict]: keys are ``word``, ``pos``, "lemma", "start" and "end". 
+    
     """
 
     doc = self._nlp(sentence)
-    return [{'word': e.text, 'pos': e.pos_} for e in doc]
-    
+    if len(self._poses)>0:
+      result = [{"word": e.text, "pos": e.pos_, "lemma": e.lemma_, "start": e.i, "end": e.i+1} for e in doc if e.pos_ in self._poses]
+    else:
+      result = [{"word": e.text, "pos": e.pos_, "lemma": e.lemma_, "start": e.i, "end": e.i+1} for e in doc]
+
+    return result 

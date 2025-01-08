@@ -4,6 +4,14 @@ sencore package
 Submodules
 ----------
 
+sencore.deeplapi module
+-----------------------
+
+.. automodule:: sencore.deeplapi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 sencore.entry module
 --------------------
 
@@ -32,6 +40,14 @@ sencore.parser module
 ---------------------
 
 .. automodule:: sencore.parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+sencore.phrase\_model\_parser module
+------------------------------------
+
+.. automodule:: sencore.phrase_model_parser
    :members:
    :undoc-members:
    :show-inheritance:

@@ -24,10 +24,12 @@
 
 """
 
-__version__ = '0.1.39'
+__version__ = '0.1.40'
 
 #from .parser import Parser
 from .vocab_parser import VocabParser
 from .phrase_parser import PhraseParser
+from .phrase_model_parser import PhraseModelParser
 from .structure_parser import StructureParser
 from .kg_parser import KGParser
+from .deeplapi import DeepLAPI

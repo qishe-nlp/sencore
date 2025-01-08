@@ -1,19 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sencore &mdash; sencore 0.1.39 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f48ec9ae"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -73,11 +75,18 @@
            <div itemprop="articleBody">
              
   <section id="sencore">
-<h1>sencore<a class="headerlink" href="#sencore" title="Permalink to this heading"></a></h1>
+<h1>sencore<a class="headerlink" href="#sencore" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sencore.html">sencore package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sencore.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sencore.html#module-sencore.deeplapi">sencore.deeplapi module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sencore.html#sencore.deeplapi.DeepLAPI"><code class="docutils literal notranslate"><span class="pre">DeepLAPI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sencore.html#sencore.deeplapi.DeepLAPI.search"><code class="docutils literal notranslate"><span class="pre">DeepLAPI.search()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="sencore.html#module-sencore.entry">sencore.entry module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sencore.html#module-sencore.kg_parser">sencore.kg_parser module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sencore.html#sencore.kg_parser.KGParser"><code class="docutils literal notranslate"><span class="pre">KGParser</span></code></a><ul>
@@ -102,13 +111,24 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="sencore.html#module-sencore.phrase_model_parser">sencore.phrase_model_parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sencore.html#sencore.phrase_model_parser.PhraseModelParser"><code class="docutils literal notranslate"><span class="pre">PhraseModelParser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sencore.html#sencore.phrase_model_parser.PhraseModelParser.align_to_spacy"><code class="docutils literal notranslate"><span class="pre">PhraseModelParser.align_to_spacy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sencore.html#sencore.phrase_model_parser.PhraseModelParser.digest"><code class="docutils literal notranslate"><span class="pre">PhraseModelParser.digest()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sencore.html#sencore.phrase_model_parser.PhraseModelParser.merge_to_phrases"><code class="docutils literal notranslate"><span class="pre">PhraseModelParser.merge_to_phrases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sencore.html#sencore.phrase_model_parser.PhraseModelParser.predict_sentence"><code class="docutils literal notranslate"><span class="pre">PhraseModelParser.predict_sentence()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sencore.html#sencore.phrase_model_parser.align_back_to_tokens"><code class="docutils literal notranslate"><span class="pre">align_back_to_tokens()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sencore.html#sencore.phrase_model_parser.align_back_to_words"><code class="docutils literal notranslate"><span class="pre">align_back_to_words()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="sencore.html#module-sencore.phrase_parser">sencore.phrase_parser module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sencore.html#sencore.phrase_parser.PhraseParser"><code class="docutils literal notranslate"><span class="pre">PhraseParser</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sencore.html#sencore.phrase_parser.PhraseParser.digest"><code class="docutils literal notranslate"><span class="pre">PhraseParser.digest()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sencore.html#sencore.phrase_parser.create_np_parser"><code class="docutils literal notranslate"><span class="pre">create_np_parser()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sencore.html#sencore.phrase_parser.create_vkb_parser"><code class="docutils literal notranslate"><span class="pre">create_vkb_parser()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sencore.html#module-sencore.structure_parser">sencore.structure_parser module</a><ul>

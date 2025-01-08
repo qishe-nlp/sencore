@@ -1,4 +1,5 @@
 import spacy
+import copy
 from sencore.parser import Parser
 from spacy import Language
 from structure_detective import Structure, trs, PKG_INDICES
@@ -32,13 +33,15 @@ class StructureParser(Parser):
       sentence (str): sentence to be parsed
 
     Returns:
-      list[dict]:  Keys are in ``start``, ``end``,  ``text``, ``element``, ``is_root``, ``explanation``
-    """
+      list[dict]: keys are ``start``, ``end``, ``text``, ``element``, ``is_root``, ``semantic_dep`` and ``explanation``.
 
+    """
 
     doc = self._nlp(sentence)
     
-    return trs(doc, doc._.structure, self.lang)
+    result = trs(doc, doc._.structure, self.lang)
+
+    return result
 
   def __del__(self):
     self._nlp.remove_pipe("structure")

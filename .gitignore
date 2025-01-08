@@ -5,3 +5,5 @@ dist
 apidocs/build
 *.zip
 *.json
+*.jsonl
+*.sh

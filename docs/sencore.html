@@ -1,19 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sencore package &mdash; sencore 0.1.39 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f48ec9ae"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -44,6 +46,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">sencore</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">sencore package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sencore.deeplapi">sencore.deeplapi module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sencore.deeplapi.DeepLAPI"><code class="docutils literal notranslate"><span class="pre">DeepLAPI</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-sencore.entry">sencore.entry module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-sencore.kg_parser">sencore.kg_parser module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#sencore.kg_parser.KGParser"><code class="docutils literal notranslate"><span class="pre">KGParser</span></code></a></li>
@@ -60,10 +66,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#sencore.parser.Parser"><code class="docutils literal notranslate"><span class="pre">Parser</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sencore.phrase_model_parser">sencore.phrase_model_parser module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sencore.phrase_model_parser.PhraseModelParser"><code class="docutils literal notranslate"><span class="pre">PhraseModelParser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sencore.phrase_model_parser.align_back_to_tokens"><code class="docutils literal notranslate"><span class="pre">align_back_to_tokens()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sencore.phrase_model_parser.align_back_to_words"><code class="docutils literal notranslate"><span class="pre">align_back_to_words()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-sencore.phrase_parser">sencore.phrase_parser module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#sencore.phrase_parser.PhraseParser"><code class="docutils literal notranslate"><span class="pre">PhraseParser</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sencore.phrase_parser.create_np_parser"><code class="docutils literal notranslate"><span class="pre">create_np_parser()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sencore.phrase_parser.create_vkb_parser"><code class="docutils literal notranslate"><span class="pre">create_vkb_parser()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-sencore.structure_parser">sencore.structure_parser module</a><ul>
@@ -109,23 +120,37 @@
            <div itemprop="articleBody">
              
   <section id="sencore-package">
-<h1>sencore package<a class="headerlink" href="#sencore-package" title="Permalink to this heading"></a></h1>
+<h1>sencore package<a class="headerlink" href="#sencore-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-sencore.deeplapi">
+<span id="sencore-deeplapi-module"></span><h2>sencore.deeplapi module<a class="headerlink" href="#module-sencore.deeplapi" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sencore.deeplapi.DeepLAPI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.deeplapi.</span></span><span class="sig-name descname"><span class="pre">DeepLAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_lang</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ZH'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.deeplapi.DeepLAPI" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sencore.deeplapi.DeepLAPI.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.deeplapi.DeepLAPI.search" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-sencore.entry">
-<span id="sencore-entry-module"></span><h2>sencore.entry module<a class="headerlink" href="#module-sencore.entry" title="Permalink to this heading"></a></h2>
+<span id="sencore-entry-module"></span><h2>sencore.entry module<a class="headerlink" href="#module-sencore.entry" title="Link to this heading"></a></h2>
 </section>
 <section id="module-sencore.kg_parser">
-<span id="sencore-kg-parser-module"></span><h2>sencore.kg_parser module<a class="headerlink" href="#module-sencore.kg_parser" title="Permalink to this heading"></a></h2>
+<span id="sencore-kg-parser-module"></span><h2>sencore.kg_parser module<a class="headerlink" href="#module-sencore.kg_parser" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="sencore.kg_parser.KGParser">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.kg_parser.</span></span><span class="sig-name descname"><span class="pre">KGParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.kg_parser.KGParser" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.kg_parser.</span></span><span class="sig-name descname"><span class="pre">KGParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.kg_parser.KGParser" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#sencore.parser.Parser" title="sencore.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parser</span></code></a></p>
 <p><code class="docutils literal notranslate"><span class="pre">KGParser</span></code> is to detect knowledge graph from sentence. Inherit <code class="docutils literal notranslate"><span class="pre">Parser</span></code>, implements <code class="docutils literal notranslate"><span class="pre">digest</span></code>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="sencore.kg_parser.KGParser.digest">
-<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.kg_parser.KGParser.digest" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.kg_parser.KGParser.digest" title="Link to this definition"></a></dt>
 <dd><p>Parse sentence into kg with linguistic meta info</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -142,46 +167,46 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sencore.kg_parser.KGParser.get_translator">
-<span class="sig-name descname"><span class="pre">get_translator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.kg_parser.KGParser.get_translator" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_translator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.kg_parser.KGParser.get_translator" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sencore.kg_parser.create_kg_parser">
-<span class="sig-prename descclassname"><span class="pre">sencore.kg_parser.</span></span><span class="sig-name descname"><span class="pre">create_kg_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Language</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.kg_parser.create_kg_parser" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sencore.kg_parser.</span></span><span class="sig-name descname"><span class="pre">create_kg_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Language</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.kg_parser.create_kg_parser" title="Link to this definition"></a></dt>
 <dd><p>Register <code class="docutils literal notranslate"><span class="pre">KG</span></code> into pipeline with component name <code class="docutils literal notranslate"><span class="pre">kg</span></code></p>
 </dd></dl>
 
 </section>
 <section id="module-sencore.lib">
-<span id="sencore-lib-module"></span><h2>sencore.lib module<a class="headerlink" href="#module-sencore.lib" title="Permalink to this heading"></a></h2>
+<span id="sencore-lib-module"></span><h2>sencore.lib module<a class="headerlink" href="#module-sencore.lib" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="sencore.lib.explain">
-<span class="sig-prename descclassname"><span class="pre">sencore.lib.</span></span><span class="sig-name descname"><span class="pre">explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.lib.explain" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sencore.lib.</span></span><span class="sig-name descname"><span class="pre">explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.lib.explain" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sencore.lib.extend_ranges">
-<span class="sig-prename descclassname"><span class="pre">sencore.lib.</span></span><span class="sig-name descname"><span class="pre">extend_ranges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.lib.extend_ranges" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sencore.lib.</span></span><span class="sig-name descname"><span class="pre">extend_ranges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.lib.extend_ranges" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sencore.lib.merge_ranges">
-<span class="sig-prename descclassname"><span class="pre">sencore.lib.</span></span><span class="sig-name descname"><span class="pre">merge_ranges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.lib.merge_ranges" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sencore.lib.</span></span><span class="sig-name descname"><span class="pre">merge_ranges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.lib.merge_ranges" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </section>
 <section id="module-sencore.parser">
-<span id="sencore-parser-module"></span><h2>sencore.parser module<a class="headerlink" href="#module-sencore.parser" title="Permalink to this heading"></a></h2>
+<span id="sencore-parser-module"></span><h2>sencore.parser module<a class="headerlink" href="#module-sencore.parser" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="sencore.parser.Parser">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.parser.</span></span><span class="sig-name descname"><span class="pre">Parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.parser.Parser" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.parser.</span></span><span class="sig-name descname"><span class="pre">Parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.parser.Parser" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Abstract class for VocabParser, PhraseParser</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="sencore.parser.Parser.lang">
-<span class="sig-name descname"><span class="pre">lang</span></span><a class="headerlink" href="#sencore.parser.Parser.lang" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">lang</span></span><a class="headerlink" href="#sencore.parser.Parser.lang" title="Link to this definition"></a></dt>
 <dd><p>language abbreviation, e.g. <code class="docutils literal notranslate"><span class="pre">en</span></code>, <code class="docutils literal notranslate"><span class="pre">es</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -192,30 +217,82 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sencore.parser.Parser.digest">
-<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.parser.Parser.digest" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.parser.Parser.digest" title="Link to this definition"></a></dt>
 <dd><p>The child classes should handle details. Throw <code class="docutils literal notranslate"><span class="pre">Exception</span></code> if calling directly.</p>
 </dd></dl>
 
 </dd></dl>
 
 </section>
-<section id="module-sencore.phrase_parser">
-<span id="sencore-phrase-parser-module"></span><h2>sencore.phrase_parser module<a class="headerlink" href="#module-sencore.phrase_parser" title="Permalink to this heading"></a></h2>
+<section id="module-sencore.phrase_model_parser">
+<span id="sencore-phrase-model-parser-module"></span><h2>sencore.phrase_model_parser module<a class="headerlink" href="#module-sencore.phrase_model_parser" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="sencore.phrase_parser.PhraseParser">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.phrase_parser.</span></span><span class="sig-name descname"><span class="pre">PhraseParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_parser.PhraseParser" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="sencore.phrase_model_parser.PhraseModelParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.phrase_model_parser.</span></span><span class="sig-name descname"><span class="pre">PhraseModelParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_model_parser.PhraseModelParser" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#sencore.parser.Parser" title="sencore.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parser</span></code></a></p>
-<p><code class="docutils literal notranslate"><span class="pre">PhraseParser</span></code> is to detect phrases from sentence. Inherit <code class="docutils literal notranslate"><span class="pre">Parser</span></code>, implements <code class="docutils literal notranslate"><span class="pre">digest</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PhraseModelParser</span></code> is to detect phrases from sentence. Inherit <code class="docutils literal notranslate"><span class="pre">Parser</span></code>, implements <code class="docutils literal notranslate"><span class="pre">digest</span></code>.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="sencore.phrase_parser.PhraseParser.digest">
-<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_parser.PhraseParser.digest" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="sencore.phrase_model_parser.PhraseModelParser.align_to_spacy">
+<span class="sig-name descname"><span class="pre">align_to_spacy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokens</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_model_parser.PhraseModelParser.align_to_spacy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sencore.phrase_model_parser.PhraseModelParser.digest">
+<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_model_parser.PhraseModelParser.digest" title="Link to this definition"></a></dt>
 <dd><p>Parse sentence into phrases with linguistic meta info</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>sentence</strong> (<em>str</em>) – sentence to be parsed</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Keys are <code class="docutils literal notranslate"><span class="pre">noun_phrases</span></code>, <code class="docutils literal notranslate"><span class="pre">verbs</span></code>, <cite>markers`</cite></p>
+<dd class="field-even"><p>keys are <code class="docutils literal notranslate"><span class="pre">text</span></code> and <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list(dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sencore.phrase_model_parser.PhraseModelParser.merge_to_phrases">
+<span class="sig-name descname"><span class="pre">merge_to_phrases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_model_parser.PhraseModelParser.merge_to_phrases" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sencore.phrase_model_parser.PhraseModelParser.predict_sentence">
+<span class="sig-name descname"><span class="pre">predict_sentence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_model_parser.PhraseModelParser.predict_sentence" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sencore.phrase_model_parser.align_back_to_tokens">
+<span class="sig-prename descclassname"><span class="pre">sencore.phrase_model_parser.</span></span><span class="sig-name descname"><span class="pre">align_back_to_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtokens</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_model_parser.align_back_to_tokens" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sencore.phrase_model_parser.align_back_to_words">
+<span class="sig-prename descclassname"><span class="pre">sencore.phrase_model_parser.</span></span><span class="sig-name descname"><span class="pre">align_back_to_words</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_model_parser.align_back_to_words" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-sencore.phrase_parser">
+<span id="sencore-phrase-parser-module"></span><h2>sencore.phrase_parser module<a class="headerlink" href="#module-sencore.phrase_parser" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sencore.phrase_parser.PhraseParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.phrase_parser.</span></span><span class="sig-name descname"><span class="pre">PhraseParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_parser.PhraseParser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sencore.parser.Parser" title="sencore.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parser</span></code></a></p>
+<p><code class="docutils literal notranslate"><span class="pre">PhraseParser</span></code> is to detect phrases from sentence. Inherit <code class="docutils literal notranslate"><span class="pre">Parser</span></code>, implements <code class="docutils literal notranslate"><span class="pre">digest</span></code>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sencore.phrase_parser.PhraseParser.digest">
+<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_parser.PhraseParser.digest" title="Link to this definition"></a></dt>
+<dd><p>Parse sentence into phrases with linguistic meta info</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sentence</strong> (<em>str</em>) – sentence to be parsed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>keys are <code class="docutils literal notranslate"><span class="pre">noun_phrases</span></code> and <code class="docutils literal notranslate"><span class="pre">buildin_np</span></code>, which are of type <code class="docutils literal notranslate"><span class="pre">list[dict]</span></code>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
@@ -227,34 +304,28 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sencore.phrase_parser.create_np_parser">
-<span class="sig-prename descclassname"><span class="pre">sencore.phrase_parser.</span></span><span class="sig-name descname"><span class="pre">create_np_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Language</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_parser.create_np_parser" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sencore.phrase_parser.</span></span><span class="sig-name descname"><span class="pre">create_np_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Language</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_parser.create_np_parser" title="Link to this definition"></a></dt>
 <dd><p>Register <code class="docutils literal notranslate"><span class="pre">NounPhraseRecognizer</span></code> into pipeline with component name <code class="docutils literal notranslate"><span class="pre">nprecog</span></code></p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="sencore.phrase_parser.create_vkb_parser">
-<span class="sig-prename descclassname"><span class="pre">sencore.phrase_parser.</span></span><span class="sig-name descname"><span class="pre">create_vkb_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Language</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.phrase_parser.create_vkb_parser" title="Permalink to this definition"></a></dt>
-<dd><p>Register <code class="docutils literal notranslate"><span class="pre">VerbKnowledgeRecognizer</span></code> into pipeline with component name <code class="docutils literal notranslate"><span class="pre">vkbrecog</span></code></p>
 </dd></dl>
 
 </section>
 <section id="module-sencore.structure_parser">
-<span id="sencore-structure-parser-module"></span><h2>sencore.structure_parser module<a class="headerlink" href="#module-sencore.structure_parser" title="Permalink to this heading"></a></h2>
+<span id="sencore-structure-parser-module"></span><h2>sencore.structure_parser module<a class="headerlink" href="#module-sencore.structure_parser" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="sencore.structure_parser.StructureParser">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.structure_parser.</span></span><span class="sig-name descname"><span class="pre">StructureParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.structure_parser.StructureParser" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.structure_parser.</span></span><span class="sig-name descname"><span class="pre">StructureParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.structure_parser.StructureParser" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#sencore.parser.Parser" title="sencore.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parser</span></code></a></p>
 <p><code class="docutils literal notranslate"><span class="pre">StructureParser</span></code> is to detect structure from sentence. Inherit <code class="docutils literal notranslate"><span class="pre">Parser</span></code>, implements <code class="docutils literal notranslate"><span class="pre">digest</span></code>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="sencore.structure_parser.StructureParser.digest">
-<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.structure_parser.StructureParser.digest" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.structure_parser.StructureParser.digest" title="Link to this definition"></a></dt>
 <dd><p>Parse sentence into structure with linguistic meta info</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>sentence</strong> (<em>str</em>) – sentence to be parsed</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Keys are in <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>,  <code class="docutils literal notranslate"><span class="pre">text</span></code>, <code class="docutils literal notranslate"><span class="pre">element</span></code>, <code class="docutils literal notranslate"><span class="pre">is_root</span></code>, <code class="docutils literal notranslate"><span class="pre">explanation</span></code></p>
+<dd class="field-even"><p>keys are <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">text</span></code>, <code class="docutils literal notranslate"><span class="pre">element</span></code>, <code class="docutils literal notranslate"><span class="pre">is_root</span></code>, <code class="docutils literal notranslate"><span class="pre">semantic_dep</span></code> and <code class="docutils literal notranslate"><span class="pre">explanation</span></code>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list[dict]</p>
@@ -266,34 +337,34 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sencore.structure_parser.create_structure_parser">
-<span class="sig-prename descclassname"><span class="pre">sencore.structure_parser.</span></span><span class="sig-name descname"><span class="pre">create_structure_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Language</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.structure_parser.create_structure_parser" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sencore.structure_parser.</span></span><span class="sig-name descname"><span class="pre">create_structure_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Language</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.structure_parser.create_structure_parser" title="Link to this definition"></a></dt>
 <dd><p>Register <code class="docutils literal notranslate"><span class="pre">Structure</span></code> into pipeline with component name <code class="docutils literal notranslate"><span class="pre">structure</span></code></p>
 </dd></dl>
 
 </section>
 <section id="module-sencore.train">
-<span id="sencore-train-module"></span><h2>sencore.train module<a class="headerlink" href="#module-sencore.train" title="Permalink to this heading"></a></h2>
+<span id="sencore-train-module"></span><h2>sencore.train module<a class="headerlink" href="#module-sencore.train" title="Link to this heading"></a></h2>
 </section>
 <section id="module-sencore.vocab_parser">
-<span id="sencore-vocab-parser-module"></span><h2>sencore.vocab_parser module<a class="headerlink" href="#module-sencore.vocab_parser" title="Permalink to this heading"></a></h2>
+<span id="sencore-vocab-parser-module"></span><h2>sencore.vocab_parser module<a class="headerlink" href="#module-sencore.vocab_parser" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="sencore.vocab_parser.VocabParser">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.vocab_parser.</span></span><span class="sig-name descname"><span class="pre">VocabParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.vocab_parser.VocabParser" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sencore.vocab_parser.</span></span><span class="sig-name descname"><span class="pre">VocabParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.vocab_parser.VocabParser" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#sencore.parser.Parser" title="sencore.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parser</span></code></a></p>
 <p><code class="docutils literal notranslate"><span class="pre">VocabParser</span></code> is to detect vocabularies from sentence. Inherit <code class="docutils literal notranslate"><span class="pre">Parser</span></code>, implements <code class="docutils literal notranslate"><span class="pre">digest</span></code>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="sencore.vocab_parser.VocabParser.digest">
-<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.vocab_parser.VocabParser.digest" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sencore.vocab_parser.VocabParser.digest" title="Link to this definition"></a></dt>
 <dd><p>Parse sentence into vocabularies with linguistic meta info</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>sentence</strong> (<em>str</em>) – sentence to be parsed</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>element is a dict, with keys <code class="docutils literal notranslate"><span class="pre">word</span></code> and <code class="docutils literal notranslate"><span class="pre">pos</span></code></p>
+<dd class="field-even"><p>keys are <code class="docutils literal notranslate"><span class="pre">word</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code>, “lemma”, “start” and “end”.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
+<dd class="field-odd"><p>list[dict]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -302,13 +373,13 @@
 
 </section>
 <section id="module-sencore">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-sencore" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-sencore" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sencore</span></code> Package</p>
 <aside class="topic">
 <p class="topic-title">Parse sentence into vocabularies</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sencore</span> <span class="kn">import</span> <span class="n">VocabParser</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sencore</span><span class="w"> </span><span class="kn">import</span> <span class="n">VocabParser</span>
 
-<span class="k">def</span> <span class="nf">vocab</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">sen</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">vocab</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">sen</span><span class="p">):</span>
   <span class="n">vp</span> <span class="o">=</span> <span class="n">VocabParser</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
   <span class="n">vocabs</span> <span class="o">=</span> <span class="n">vp</span><span class="o">.</span><span class="n">digest</span><span class="p">(</span><span class="n">sen</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">vocabs</span><span class="p">)</span>
@@ -317,9 +388,9 @@
 </aside>
 <aside class="topic">
 <p class="topic-title">Parse sentence into phrases</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sencore</span> <span class="kn">import</span> <span class="n">PhraseParser</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sencore</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhraseParser</span>
 
-<span class="k">def</span> <span class="nf">phrase</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">sen</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">phrase</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">sen</span><span class="p">):</span>
   <span class="n">pp</span> <span class="o">=</span> <span class="n">PhraseParser</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
   <span class="n">phrases</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">digest</span><span class="p">(</span><span class="n">sen</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">phrases</span><span class="p">)</span>
