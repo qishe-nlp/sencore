@@ -43,7 +43,8 @@ def phrase(lang, sentence):
 @click.option("--sentence", help="Specify the sentence", default=None)
 def model_phrase(lang, sentence):
   sentences = {
-      "en": "Don't confuse the description of a thing for the thing itself.",
+      #"en": "Don't confuse the description of a thing for the thing itself.",
+      "en": "But there are more ways to discuss space, and they each add a new layer of understanding – from measuring it, to defining it, to understanding the relationship between places.",
       #"en": "Apple is looking at buying U.K. startup for $1 billion.",
       #"es": "En 1941, fue llamado a filas para incorporarse a la Armada.",
       #"de": "Für Joachim Löw ist ein Nationalmannschafts-Comeback von Thomas Müller und Mats Hummels nicht mehr kategorisch ausgeschlossen.",

@@ -82,6 +82,8 @@ class PhraseModelParser(Parser):
     alignment = [[] for t in doc]
 
     for index, t in enumerate(doc):
+      if tokens[i] == "[UNK]":
+        tokens[i] = t.text
       if len(tokens[i])>len(t.text):
         text = tokens[i]
         tokens[i] = text[:len(t.text)]
