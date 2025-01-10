@@ -59,15 +59,15 @@ def generate_phrase_parsed(lang, senfile, dstname):
 
   np_content = []
 
-  t_api = DeepLAPI(lang)
+  #t_api = DeepLAPI(lang)
 
   for sen in TEXTS:
     phrases = pp.digest(sen)
 
-    for p in phrases:
-      print(p)
-      r = t_api.search(p["text"])
-      p.update(r) 
+    #for p in phrases:
+    #  print(p)
+    #  r = t_api.search(p["text"])
+    #  p.update(r) 
    
     np_content.append({"sentence": sen, "phrases": json.dumps(phrases)})
 

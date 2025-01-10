@@ -81,6 +81,9 @@ class PhraseModelParser(Parser):
     i = 0
     alignment = [[] for t in doc]
 
+    #print([t for t in doc])
+    #print(tokens)
+    #print(tags)
     for index, t in enumerate(doc):
       if tokens[i] == "[UNK]":
         tokens[i] = t.text
@@ -103,12 +106,14 @@ class PhraseModelParser(Parser):
     return _tags
 
   def merge_to_phrases(self, tags, sentence):
+    #print(sentence)
+    #print(tags)
     phrases = []
     size = len(tags)
     for i in range(size):
       if tags[i] == "B-N":
         phrases.append({"start": i})
-      elif i>1 and tags[i-1]=="O" and tags[i] == "I-N":
+      elif i>=1 and tags[i-1]=="O" and tags[i] == "I-N":
         phrases.append({"start": i})
       elif tags[i] == "I-N":
         phrases[-1]["end"] = i+1
