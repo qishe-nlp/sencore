@@ -10,7 +10,6 @@ class DeepLAPI:
   def search(self, p, context=None):
     try:
       _r = self.api.translate_text(p, source_lang=self.from_lang, target_lang=self.to_lang, context=context)
-      print(_r.detected_source_lang)
       result = {
         "original": p,
         "translated": _r.text,
