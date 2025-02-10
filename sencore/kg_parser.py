@@ -2,8 +2,9 @@ import spacy
 from sencore.parser import Parser
 from spacy import Language
 from kg_detective import KG, PKG_INDICES
-from sencore.lib import extend_ranges
+from sencore.lib import extend_ranges, infixes
 import kg_detective
+from spacy.util import compile_infix_regex
 
 @Language.factory("kg", default_config={"labels": [], "rules": []})
 def create_kg_parser(nlp: Language, name: str, labels: list, rules: list):
@@ -24,6 +25,8 @@ class KGParser(Parser):
 
     super().__init__(lang) 
     self._nlp = spacy.load(PKG_INDICES[lang])
+    infix_re = compile_infix_regex(infixes)
+    self._nlp.tokenizer.infix_finditer = infix_re.finditer
     self._nlp.add_pipe("kg", config={"labels": labels, "rules": rules})
     
 

@@ -1,5 +1,7 @@
 from sencore.parser import Parser
 import spacy
+from spacy.util import compile_infix_regex
+from sencore.lib import infixes
 
 class VocabParser(Parser):
   """``VocabParser`` is to detect vocabularies from sentence. Inherit ``Parser``, implements ``digest``.
@@ -21,6 +23,8 @@ class VocabParser(Parser):
 
     super().__init__(lang) 
     self._nlp = spacy.load(self.__class__._pkgindices[lang])
+    infix_re = compile_infix_regex(infixes)
+    self._nlp.tokenizer.infix_finditer = infix_re.finditer
     self._poses = poses
 
   def digest(self, sentence):

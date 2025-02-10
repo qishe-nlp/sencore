@@ -24,7 +24,7 @@
 
 """
 
-__version__ = '0.1.49'
+__version__ = '0.1.50'
 
 #from .parser import Parser
 from .vocab_parser import VocabParser

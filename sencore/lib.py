@@ -1,3 +1,22 @@
+from spacy.lang.char_classes import ALPHA, ALPHA_LOWER, ALPHA_UPPER
+from spacy.lang.char_classes import CONCAT_QUOTES, LIST_ELLIPSES, LIST_ICONS
+
+infixes = (
+  LIST_ELLIPSES
+  + LIST_ICONS
+  + [
+      r"(?<=[0-9])[+\\-\\*^](?=[0-9-])",
+      r"(?<=[{al}{q}])\\.(?=[{au}{q}])".format(
+          al=ALPHA_LOWER, au=ALPHA_UPPER, q=CONCAT_QUOTES
+      ),
+      r"(?<=[{a}]),(?=[{a}])".format(a=ALPHA),
+      # ✅ Commented out regex that splits on hyphens between letters:
+      # r"(?<=[{a}])(?:{h})(?=[{a}])".format(a=ALPHA, h=HYPHENS),
+      r"(?<=[{a}0-9])[:<>=/](?=[{a}])".format(a=ALPHA),
+  ]
+)
+
+
 def merge_ranges(ranges):
   ordered = sorted(ranges, key=lambda x: x[0])
   purified = []
