@@ -1,4 +1,4 @@
-from sencore import VocabParser, PhraseParser, StructureParser, KGParser
+from sencore import EnVocabParser, EnVocabParser, PhraseParser, StructureParser, KGParser
 from sencore import PhraseModelParser
 from sencore.lib import explain
 import click
@@ -16,7 +16,11 @@ def vocab(lang, sentence):
 
   sen = sentence or sentences[lang]
   print(sen)
-  vp = VocabParser(lang, ["VERB"])
+  parsers = {
+    "en": EnVocabParser,
+    "es": EsVocabParser,
+  }
+  vp = parsers[lang](lang)
   vocabs = vp.digest(sen)
   print(vocabs)
 

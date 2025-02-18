@@ -14,7 +14,7 @@ class VocabParser(Parser):
     "fr": "fr_dep_news_trf",
   }
 
-  def __init__(self, lang: str, poses: list=[]):
+  def __init__(self, lang: str):
     """Initialize nlp processor according to language
 
     Args:
@@ -25,7 +25,6 @@ class VocabParser(Parser):
     self._nlp = spacy.load(self.__class__._pkgindices[lang])
     infix_re = compile_infix_regex(infixes)
     self._nlp.tokenizer.infix_finditer = infix_re.finditer
-    self._poses = poses
 
   def digest(self, sentence):
     """Parse sentence into vocabularies with linguistic meta info
@@ -37,11 +36,5 @@ class VocabParser(Parser):
       list[dict]: keys are ``word``, ``pos``, "lemma", "start" and "end". 
     
     """
-
-    doc = self._nlp(sentence)
-    if len(self._poses)>0:
-      result = [{"word": e.text, "pos": e.pos_, "lemma": e.lemma_, "start": e.i, "end": e.i+1} for e in doc if e.pos_ in self._poses]
-    else:
-      result = [{"word": e.text, "pos": e.pos_, "lemma": e.lemma_, "start": e.i, "end": e.i+1} for e in doc]
-
-    return result 
+    raise Exception("You have to implement method {}!!!".format("digest"))
+ 

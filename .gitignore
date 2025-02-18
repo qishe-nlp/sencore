@@ -7,3 +7,4 @@ apidocs/build
 *.json
 *.jsonl
 *.sh
+*.svg

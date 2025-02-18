@@ -1,6 +1,6 @@
 import json
 import csv
-from sencore import VocabParser, PhraseModelParser, StructureParser, KGParser, DeepLAPI
+from sencore import EnVocabParser, EsVocabParser, PhraseModelParser, StructureParser, KGParser, DeepLAPI
 from sencore.lib import explain
 import click
 
@@ -23,10 +23,13 @@ def _read_from_csv(csvfile):
 @click.command()
 @click.option("--lang", help="Specify the language", default="en", prompt="Language")
 @click.option("--senfile", help="Specify the sentence file in json", prompt="Sentence file")
-@click.option("--poses", help="Specify the POSes", multiple=True, prompt="A list of part of speech")
 @click.option("--dstname", help="Specify the phrase parsed file", prompt="Review file")
-def generate_vocab_parsed(lang, senfile, poses, dstname):
-  vp = VocabParser(lang, poses)
+def generate_vocab_parsed(lang, senfile, dstname):
+  parsers = {
+    "en": EnVocabParser,
+    "es": EsVocabParser,
+  }
+  vp = parsers[lang](lang)
 
   with open(senfile, encoding="utf8") as f:
     TEXTS = json.loads(f.read())

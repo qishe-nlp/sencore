@@ -4,10 +4,10 @@
 
   .. code:: python
 
-    from sencore import VocabParser
+    from sencore import EnVocabParser
 
     def vocab(lang, sen):
-      vp = VocabParser(lang)
+      vp = EnVocabParser(lang)
       vocabs = vp.digest(sen)
       print(vocabs)
 
@@ -24,10 +24,11 @@
 
 """
 
-__version__ = '0.1.51'
+__version__ = '0.1.52'
 
 #from .parser import Parser
-from .vocab_parser import VocabParser
+from .vocab_parser.en import EnVocabParser
+from .vocab_parser.es import EsVocabParser
 from .phrase_parser import PhraseParser
 from .phrase_model_parser import PhraseModelParser
 from .structure_parser import StructureParser
