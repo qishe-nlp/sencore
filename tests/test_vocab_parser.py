@@ -2,24 +2,6 @@ from sencore import EnVocabParser, EsVocabParser
 import json
 from tests.lib import *
 
-def test_en_vocab_parser():
-  lang = "en"
-  senfile = "test_source/{}_test.json".format(lang)
-  with open(senfile, encoding="utf8") as f:
-    sentences = json.loads(f.read())
-
-  p = EnVocabParser(lang)
-  for s in sentences:
-    doc = p._nlp(s)
-    print(s)
-    print("="*20)
-    print_doc(doc)
-    graph(doc, lang)
-    print("="*20)
-    vocabs = p.digest(s)
-    print(vocabs)
-    assert isinstance(vocabs, list) == True
-
 sentences = [
   "No se me ahogue en un vaso de agua, señorita Quiroga, por favor, que seguro que al problema de la vivienda le encontramos remedio.",
   "Sí. Así que ya puede espabilarse y sacar el dinero de debajo de las piedras si hace falta, pero de forma limpia. ¿Queda claro?",
@@ -115,13 +97,24 @@ sentences = [
   "Me temo que esta pulsera ya tiene dueño.",
   "Si Ramiro se las llevó con él a Argentina, usted me lo dijo.",
 ]
-def test_es_vocab_parser():
-  lang = "es"
-  #senfile = "test_source/{}_test.json".format(lang)
-  #with open(senfile, encoding="utf8") as f:
-  #  sentences = json.loads(f.read())
 
-  p = EsVocabParser(lang)
+def _get_parser(lang):
+  parsers = {
+    "en": EnVocabParser(lang),
+    "es": EsVocabParser(lang),
+  }
+  return parsers[lang]
+
+def _get_source(lang):
+  sentences = []
+  senfile = "test_source/{}_test.json".format(lang)
+  with open(senfile, encoding="utf8") as f:
+    sentences = json.loads(f.read())
+  return sentences
+
+def _validate_vocab_parser(lang):
+  sentences = _get_source(lang)
+  p = _get_parser(lang)
   for s in sentences:
     doc = p._nlp(s)
     print(s)
@@ -132,5 +125,10 @@ def test_es_vocab_parser():
     vocabs = p.digest(s)
     print(vocabs)
     assert isinstance(vocabs, list) == True
-
+  
+def test_vocab_parser():
+  langs = ["en", "es"]
+  for lang in langs:
+    _validate_vocab_parser(lang)
+  
 
