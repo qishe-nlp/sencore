@@ -479,13 +479,13 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "kg-detective"
-version = "0.1.26"
+version = "0.1.27"
 description = "Knowledge Graph recognizer component for spacy pipeline"
 optional = false
 python-versions = "<4.0,>=3.12"
 files = [
-    {file = "kg_detective-0.1.26-py3-none-any.whl", hash = "sha256:1095ef3551a4039361ae258f3e452a0888f4d5f3141c8dd0585a3e505eb44cc9"},
-    {file = "kg_detective-0.1.26.tar.gz", hash = "sha256:e4e2e88817a2b793f8bcdaaaaeb4f2eee0f0de322d9a32e53c6884dfbc13efe4"},
+    {file = "kg_detective-0.1.27-py3-none-any.whl", hash = "sha256:5d75b4a283e97907566500dfa81635f929f66f45e5a46830059f507b888fe192"},
+    {file = "kg_detective-0.1.27.tar.gz", hash = "sha256:a3f11ef3843ad34c8b507c1476f55f642017d0062b1bb307dd0a94a1c487b241"},
 ]
 
 [package.dependencies]
@@ -2082,4 +2082,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "7eea8fccb2914aa1a8e82f9c37af83f187a16a6a15a6bc06952030a0462ea6ba"
+content-hash = "2b16e02e81d58c4eb21b076bc53b20d4c63316d624fdc2672324c0e4bd8fd592"
