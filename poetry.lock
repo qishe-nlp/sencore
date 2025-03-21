@@ -479,13 +479,13 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "kg-detective"
-version = "0.1.28"
+version = "0.1.29"
 description = "Knowledge Graph recognizer component for spacy pipeline"
 optional = false
 python-versions = "<4.0,>=3.12"
 files = [
-    {file = "kg_detective-0.1.28-py3-none-any.whl", hash = "sha256:0ea63eeff9f5c56af1fb7adb314de113e6d71325b1dcb77d2bcff229e94d8747"},
-    {file = "kg_detective-0.1.28.tar.gz", hash = "sha256:e30372eddfafd5e5bcf5b77114e440f8a74d075a546e15312b080c1b9a8627b1"},
+    {file = "kg_detective-0.1.29-py3-none-any.whl", hash = "sha256:e673e73d161315ebc3013cb9da40545470eedae38185497d711190ce9166a935"},
+    {file = "kg_detective-0.1.29.tar.gz", hash = "sha256:9bdd0d6ba227310a51a02984ef96cda681bf3758ba1de5b85b3aae348e62f52e"},
 ]
 
 [package.dependencies]
@@ -1323,18 +1323,18 @@ torch = ["safetensors[numpy]", "torch (>=1.10)"]
 
 [[package]]
 name = "setuptools"
-version = "77.0.1"
+version = "77.0.3"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "setuptools-77.0.1-py3-none-any.whl", hash = "sha256:81a234dff81a82bb52e522c8aef145d0dd4de1fd6de4d3b196d0f77dc2fded26"},
-    {file = "setuptools-77.0.1.tar.gz", hash = "sha256:a1246a1b4178c66d7cf50c9fc6d530fac3f89bc284cf803c7fa878c41b1a03b2"},
+    {file = "setuptools-77.0.3-py3-none-any.whl", hash = "sha256:67122e78221da5cf550ddd04cf8742c8fe12094483749a792d56cd669d6cf58c"},
+    {file = "setuptools-77.0.3.tar.gz", hash = "sha256:583b361c8da8de57403743e756609670de6fb2345920e36dc5c2d914c319c945"},
 ]
 
 [package.extras]
 check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1)", "ruff (>=0.8.0)"]
-core = ["importlib_metadata (>=6)", "jaraco.collections", "jaraco.functools (>=4)", "jaraco.text (>=3.7)", "more_itertools", "more_itertools (>=8.8)", "packaging", "packaging (>=24.2)", "platformdirs (>=4.2.2)", "tomli (>=2.0.1)", "wheel (>=0.43.0)"]
+core = ["importlib_metadata (>=6)", "jaraco.functools (>=4)", "jaraco.text (>=3.7)", "more_itertools", "more_itertools (>=8.8)", "packaging (>=24.2)", "platformdirs (>=4.2.2)", "tomli (>=2.0.1)", "wheel (>=0.43.0)"]
 cover = ["pytest-cov"]
 doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier", "towncrier (<24.7)"]
 enabler = ["pytest-enabler (>=2.2)"]
@@ -2082,4 +2082,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "687079b72c71f93e3a2befa58425ee61ded743440d6bf0c6fca78fa8ff4561e7"
+content-hash = "e947f66a6eab470930192c8cc1b01b24f03441773c97f4f6c62c9e1ec1321f6d"
